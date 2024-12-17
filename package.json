@@ -1,0 +1,28 @@
+{
+  "name": "batch-request-processor",
+  "version": "1.0.0",
+  "description": "A simple library to process tasks in batches.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "batch",
+    "tasks",
+    "promise",
+    "progress"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],  
+  "author": "Leonardo R",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.4"
+  }
+}

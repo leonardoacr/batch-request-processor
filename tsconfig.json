@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",        // or another target version
+    "module": "CommonJS",      // or ESModule depending on your setup
+    "declaration": true,       // This enables the generation of .d.ts files
+    "declarationDir": "./dist", // Directory to output .d.ts files
+    "outDir": "./dist",        // Directory to output compiled .js files
+    "esModuleInterop": true,   // Optional but recommended for compatibility
+    "strict": true,            // Optional, enables strict mode
+    "skipLibCheck": true,      // Optional, can skip type checking of declaration files
+    "sourceMap": true          // Optional, generates source maps
+  },
+  "include": ["src/**/*.ts"],    // Include all TypeScript files in the 'src' directory
+  "exclude": ["node_modules"]    // Exclude node_modules from the compilation
+}
