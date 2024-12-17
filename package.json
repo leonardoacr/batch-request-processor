@@ -18,6 +18,11 @@
     "README.md",
     "LICENSE"
   ],  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonardoacr/batch-request-processor.git"
+  },
+  "homepage": "https://github.com/leonardoacr/batch-request-processor#readme",
   "author": "Leonardo R",
   "license": "MIT",
   "dependencies": {},
