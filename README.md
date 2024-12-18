@@ -36,14 +36,14 @@ const fetchCatFact = async () => {
     return data[0];
 };
 
-const onProgress = (progress: number) => {
+const inProgress = (progress: number) => {
     console.log(`Progress: ${progress}%`);
 };
 
 const requestFactories = Array.from({ length: 4 }, createRequestFactory);
 const batchSize = 2;
 
-BatchRequestProcessor.process(requestFactories, batchSize, onProgress)
+BatchRequestProcessor.process(requestFactories, batchSize, inProgress)
     .then((results) => console.log('Fetched Cat Facts:', results))
     .catch((error) => console.error('Error:', error));
 ```
@@ -51,7 +51,7 @@ BatchRequestProcessor.process(requestFactories, batchSize, onProgress)
 ### Explanation of the Code
 
 1. **Request Factory**: We define a `createRequestFactory` function that generates an asynchronous request task to fetch a cat fact.
-2. **Progress Callback**: An `onProgress` function is provided to log the completion percentage of the batch.
+2. **Progress Callback**: An `inProgress` function is provided to log the completion percentage of the batch.
 3. **Processing**: The `BatchRequestProcessor.process` method is used to handle the tasks in batches, with the progress being reported during the process.
 
 ## Medium Post

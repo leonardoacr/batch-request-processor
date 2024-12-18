@@ -3,13 +3,13 @@ export class BatchRequestProcessor {
    * Processes a list of tasks in batches and collects results.
    * @param tasks - An array of tasks (factory functions) to be executed.
    * @param batchSize - The number of tasks to process in each batch.
-   * @param onProgress - Optional callback to report the progress percentage.
+   * @param inProgress - Optional callback to report the progress percentage.
    * @returns A promise that resolves with the collected results of all tasks.
    */
   static async process<T>(
     tasks: (() => Promise<T>)[],
     batchSize: number,
-    onProgress?: (progress: number) => void
+    inProgress?: (progress: number) => void
   ): Promise<T[]> {
     if (!Array.isArray(tasks) || tasks.length === 0) {
       throw new Error('Tasks must be a non-empty array.');
@@ -23,8 +23,8 @@ export class BatchRequestProcessor {
     const totalTasks = tasks.length;
     let completedTasks = 0;
 
-    if (onProgress) {
-      onProgress(0);
+    if (inProgress) {
+      inProgress(0);
     }
 
     for (let i = 0; i < totalTasks; i += batchSize) {
@@ -33,9 +33,9 @@ export class BatchRequestProcessor {
       results.push(...batchResults.filter(Boolean));
 
       completedTasks += batch.length;
-      if (onProgress) {
+      if (inProgress) {
         const progress = Math.round((completedTasks / totalTasks) * 100);
-        onProgress(progress);
+        inProgress(progress);
       }
     }
 
