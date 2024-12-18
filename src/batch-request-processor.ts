@@ -1,3 +1,6 @@
+import { TasksProgress } from "./interfaces/tasks-progress.interface";
+
+
 export class BatchRequestProcessor {
   /**
    * Processes a list of tasks in batches and collects results.
@@ -9,7 +12,7 @@ export class BatchRequestProcessor {
   static async process<T>(
     tasks: (() => Promise<T>)[],
     batchSize: number,
-    inProgress?: (progress: number) => void
+    inProgress?: (tasksProgress: TasksProgress) => void
   ): Promise<T[]> {
     if (!Array.isArray(tasks) || tasks.length === 0) {
       throw new Error('Tasks must be a non-empty array.');
@@ -24,7 +27,11 @@ export class BatchRequestProcessor {
     let completedTasks = 0;
 
     if (inProgress) {
-      inProgress(0);
+      inProgress({
+        progress: 0,
+        completedTasks: 0,
+        totalTasks: 0,
+      });
     }
 
     for (let i = 0; i < totalTasks; i += batchSize) {
@@ -34,8 +41,8 @@ export class BatchRequestProcessor {
 
       completedTasks += batch.length;
       if (inProgress) {
-        const progress = Math.round((completedTasks / totalTasks) * 100);
-        inProgress(progress);
+        const progress = +((completedTasks / totalTasks) * 100).toFixed(2);
+        inProgress({ progress, completedTasks, totalTasks });
       }
     }
 
