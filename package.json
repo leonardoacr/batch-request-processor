@@ -1,6 +1,6 @@
 {
   "name": "batch-request-processor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple library to process tasks in batches.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
