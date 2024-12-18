@@ -17,7 +17,7 @@
     "dist",
     "README.md",
     "LICENSE"
-  ],  
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leonardoacr/batch-request-processor.git"
@@ -25,9 +25,11 @@
   "homepage": "https://github.com/leonardoacr/batch-request-processor#readme",
   "author": "Leonardo R",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
+    "@types/jest": "^29.5.14",
     "@types/node": "^18.11.18",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
     "typescript": "^4.9.4"
   }
 }

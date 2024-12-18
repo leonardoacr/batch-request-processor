@@ -8,7 +8,8 @@
     "esModuleInterop": true,   // Optional but recommended for compatibility
     "strict": true,            // Optional, enables strict mode
     "skipLibCheck": true,      // Optional, can skip type checking of declaration files
-    "sourceMap": true          // Optional, generates source maps
+    "sourceMap": true,          // Optional, generates source maps
+    "types": ["jest"]
   },
   "include": ["src/**/*.ts"],    // Include all TypeScript files in the 'src' directory
   "exclude": ["node_modules"]    // Exclude node_modules from the compilation
